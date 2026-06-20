@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: "Press Start 2P", "Courier New", Courier, monospace;
+  --font-sans: "Nunito", system-ui, -apple-system, sans-serif;
+  
+  --color-sandy-green: #8DB87A;
+  --color-earth-dark: #2D4A1E;
+  --color-teal-accent: #4ECDC4;
+  --color-golden-accent: #E8A838;
+  --color-cream-accent: #FDF6E3;
+  --color-dark-green: #1a2e0f;
+}
+
+/* Custom Pixel Cursors */
+body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M2,2 L2,24 L8,18 L13,29 L17,27 L12,16 L20,16 Z' fill='%23FDF6E3' stroke='%231a2e0f' stroke-width='2' stroke-linejoin='miter'/%3E%3C/svg%3E") 2 2, auto;
+  font-family: var(--font-sans);
+}
+
+a, button, [role="button"], select, input, textarea {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M8,2 L8,18 L5,18 L5,22 L12,22 L12,18 L10,18 L10,10 L12,12 L12,18 L14,18 L14,10 L16,12 L16,18 L18,18 L18,10 L20,12 L20,18 L22,18 L22,22 L26,22 L26,18 L24,18 L24,2 Z' fill='%23FDF6E3' stroke='%231a2e0f' stroke-width='2'/%3E%3C/svg%3E") 12 2, pointer !important;
+}
+
+/* Crisp Pixel Rendering override */
+.pixelated {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Grid Overlay Background (3% opacity) */
+.pixel-grid {
+  background-size: 16px 16px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* Scrolling Grid for high-contrast background */
+.pixel-grid-light {
+  background-size: 16px 16px;
+  background-image: 
+    linear-gradient(to right, rgba(253, 246, 227, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(253, 246, 227, 0.04) 1px, transparent 1px);
+}
+
+/* Custom Sprite Sheet Animation */
+.pixel-sprite-walk-down {
+  width: 48px;
+  height: 48px;
+  background-image: url('/assets/MPlayer 1 walking.png');
+  background-repeat: no-repeat;
+  background-position-y: -192px;
+  animation: spriteWalk 0.8s steps(4) infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes spriteWalk {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -192px;
+  }
+}
+
+/* Chunky Pixel Solid Borders with Offset Shadows */
+.pixel-border-dark {
+  border: 4px solid #1a2e0f;
+}
+.pixel-border-teal {
+  border: 4px solid #4ECDC4;
+}
+.pixel-border-golden {
+  border: 4px solid #E8A838;
+}
+.pixel-border-cream {
+  border: 4px solid #FDF6E3;
+}
+
+.pixel-shadow-dark {
+  box-shadow: 4px 4px 0px 0px #1a2e0f;
+}
+.pixel-shadow-teal {
+  box-shadow: 4px 4px 0px 0px #4ECDC4;
+}
+.pixel-shadow-golden {
+  box-shadow: 4px 4px 0px 0px #E8A838;
+}
+.pixel-shadow-cream {
+  box-shadow: 4px 4px 0px 0px #FDF6E3;
+}
+
+/* Floating Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-3deg);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-gentle 7s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 6s ease-in-out infinite;
+}
+
+/* Spin animation for coin */
+@keyframes pixelSpin {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.05);
+  }
+}
+
+.animate-pixel-spin {
+  animation: pixelSpin 1.4s steps(4) infinite;
+}
+
+/* Twinkle animation for stars */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Bouncing Arrow */
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-bounce-arrow {
+  animation: bounceArrow 1.2s steps(4) infinite;
+}
+
+/* Pixel Art Drawings with Pure CSS */
+
+/* Pixel Leaf 
+  A small box-shadow design. We use a base width & height as 4px.
+*/
+.pixel-leaf-css {
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  box-shadow: 
+    4px 0px 0 #1a2e0f, 8px 0px 0 #1a2e0f,
+    0px 4px 0 #1a2e0f, 4px 4px 0 #4ECDC4, 8px 4px 0 #4ECDC4, 12px 4px 0 #1a2e0f,
+    0px 8px 0 #1a2e0f, 4px 8px 0 #8DB87A, 8px 8px 0 #8DB87A, 12px 8px 0 #1a2e0f,
+    4px 12px 0 #1a2e0f, 8px 12px 0 #1a2e0f;
+}
+
+/* Pixel Coin */
+.pixel-coin-css {
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  box-shadow:
+    4px 0 #1a2e0f, 8px 0 #1a2e0f, 12px 0 #1a2e0f,
+    0px 4px #1a2e0f, 4px 4px #E8A838, 8px 4px #FDF6E3, 12px 4px #E8A838, 16px 4px #1a2e0f,
+    0px 8px #1a2e0f, 4px 8px #E8A838, 8px 8px #1a2e0f, 12px 8px #1a2e0f, 16px 8px #1a2e0f,
+    0px 12px #1a2e0f, 4px 12px #E8A838, 8px 12px #E8A838, 12px 12px #E8A838, 16px 12px #1a2e0f,
+    4px 16px #1a2e0f, 8px 16px #1a2e0f, 12px 16px #1a2e0f;
+}
+
+/* Pixel Star */
+.pixel-star-css {
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  box-shadow:
+    8px 0 #FDF6E3,
+    4px 4px #FDF6E3, 8px 4px #FDF6E3, 12px 4px #FDF6E3,
+    0px 8px #FDF6E3, 4px 8px #FDF6E3, 8px 8px #FDF6E3, 12px 8px #FDF6E3, 16px 8px #FDF6E3,
+    4px 12px #FDF6E3, 8px 12px #FDF6E3, 12px 12px #FDF6E3,
+    8px 16px #FDF6E3;
+}
+
+/* Pixel Seedling */
+.pixel-seed-css {
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  box-shadow:
+    4px 0 #1a2e0f, 12px 0 #1a2e0f,
+    0px 4px #1a2e0f, 4px 4px #8DB87A, 12px 4px #8DB87A, 16px 4px #1a2e0f,
+    4px 8px #1a2e0f, 8px 8px #1a2e0f, 12px 8px #1a2e0f,
+    8px 12px #1a2e0f,
+    8px 16px #1a2e0f;
+}
+
+/* Custom transitions and scroll animations support */
+.transition-pixel {
+  transition: all 0.15s steps(4);
+}
+
+/* Fade-out transition for landing page exit */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+  transition: all 0.15s steps(4);
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s steps(6), transform 0.6s steps(6);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
