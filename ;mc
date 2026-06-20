@@ -1,0 +1,8 @@
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+user.name=Niel-D22
+user.email=danielwarouw01@gmail.com
+core.editor=code --wait
+http.sslbackend=schannel
